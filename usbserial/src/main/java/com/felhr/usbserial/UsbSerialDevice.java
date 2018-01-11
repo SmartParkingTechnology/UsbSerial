@@ -198,6 +198,8 @@ public abstract class UsbSerialDevice implements UsbSerialInterface
 
     public static boolean isCdcDevice(UsbDevice device)
     {
+        if(device.getVendorId() == 4817 && device.getProductId() == 5382)
+            return true;
         int iIndex = device.getInterfaceCount();
         for(int i=0;i<=iIndex-1;i++)
         {

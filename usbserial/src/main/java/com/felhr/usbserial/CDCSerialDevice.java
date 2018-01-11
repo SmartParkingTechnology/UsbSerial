@@ -325,6 +325,9 @@ public class CDCSerialDevice extends UsbSerialDevice
 
     private static int findFirstCDC(UsbDevice device)
     {
+        if(device.getVendorId() == 4817 && device.getProductId() == 5382)
+            return 0;
+
         int interfaceCount = device.getInterfaceCount();
 
         for (int iIndex = 0; iIndex < interfaceCount; ++iIndex)
